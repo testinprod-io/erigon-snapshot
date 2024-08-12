@@ -7,7 +7,7 @@ import (
 	"net/http"
 	"os"
 
-	_ "github.com/erigontech/erigon-snapshot/webseed"
+	_ "github.com/testinprod-io/erigon-snapshot/webseed"
 )
 
 var branchReference = getBranchReference()
@@ -45,7 +45,7 @@ var Holesky []byte
 var OpSepolia []byte
 
 func getURLByChain(chain string) string {
-	return fmt.Sprintf("https://raw.githubusercontent.com/erigontech/erigon-snapshot/%s/%s.toml", branchReference, chain)
+	return fmt.Sprintf("https://raw.githubusercontent.com/testinprod-io/erigon-snapshot/%s/%s.toml", branchReference, chain)
 }
 
 func LoadSnapshots() (couldFetch bool) {
