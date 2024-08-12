@@ -41,6 +41,9 @@ var Chiado []byte
 //go:embed holesky.toml
 var Holesky []byte
 
+//go:embed op-sepolia.toml
+var OpSepolia []byte
+
 func getURLByChain(chain string) string {
 	return fmt.Sprintf("https://raw.githubusercontent.com/erigontech/erigon-snapshot/%s/%s.toml", branchReference, chain)
 }
