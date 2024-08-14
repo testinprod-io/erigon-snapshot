@@ -17,7 +17,7 @@ func getBranchReference() string {
 	if v != "" {
 		return v
 	}
-	return "main"
+	return "op-erigon"
 }
 
 //go:embed mainnet.toml
@@ -57,6 +57,7 @@ func LoadSnapshots() (couldFetch bool) {
 		gnosisUrl     = getURLByChain("gnosis")
 		chiadoUrl     = getURLByChain("chiado")
 		holeskyUrl    = getURLByChain("holesky")
+		opSepoliaUrl  = getURLByChain("op-sepolia")
 	)
 	var hashes []byte
 	var err error
@@ -102,6 +103,12 @@ func LoadSnapshots() (couldFetch bool) {
 		return
 	}
 	Holesky = hashes
+
+	if hashes, err = fetchSnapshotHashes(opSepoliaUrl); err != nil {
+		couldFetch = false
+		return
+	}
+	OpSepolia = hashes
 
 	couldFetch = true
 	return
