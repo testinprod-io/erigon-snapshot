@@ -24,3 +24,6 @@ var Chiado []byte
 
 //go:embed holesky.toml
 var Holesky []byte
+
+//go:embed op-sepolia.toml
+var OpSepolia []byte
